@@ -77,7 +77,7 @@ body.crazy {
             user-select: none;
         }
     }
-    
+
     .wrapper {
         width: 1024px;
         height: 400px;
@@ -109,27 +109,27 @@ body.crazy {
                 border-radius: 10px;
                 border: 1px solid black;
                 box-shadow: black 0 0 3px;
-                cursor: pointer;    
+                cursor: pointer;
                 background: linear-gradient(to bottom right, #193868,#a8033f);
                 user-select: none;
                 transition: transform 0.3s ease;
-                
+
                 &:hover {
-                    transform: scale(0.96);  
-                    cursor: pointer;              
+                    transform: scale(0.96);
+                    cursor: pointer;
                 }
                 &:active {
                     transform: scale(0.90);
                 }
-                
+
                 .up-price {
                     position: relative;
                     top: 4px;
                     font-size: 17px;
-                    color: rgb(255, 255, 255);  
+                    color: rgb(255, 255, 255);
                 }
             }
-            
+
             .double-up {
                 display: flex;
                 opacity: 0.6;
@@ -138,7 +138,7 @@ body.crazy {
             .triple-up {
                 display: none;
             }
-            
+
         }
 
         .middle-side {
@@ -159,7 +159,7 @@ body.crazy {
                 background: linear-gradient(to bottom right, #193868,#a8033f);
                 position: relative;
                 z-index: 200;
-                
+
                 &:hover {
                     cursor: pointer;
                 }
@@ -174,8 +174,7 @@ body.crazy {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            flex-direction: row;
-            
+
             .auto-clicks {
                 height: 70px;
                 width: 190px;
@@ -192,39 +191,39 @@ body.crazy {
                 border-radius: 10px;
                 border: 1px solid black;
                 box-shadow: black 0 0 3px;
-                cursor: pointer;    
+                cursor: pointer;
                 background: linear-gradient(to bottom right, #193868,#a8033f);
                 user-select: none;
                 transition: transform 0.3s ease;
                 opacity: 0.6;
                 pointer-events: none;
-                
+
                 &:hover {
-                    transform: scale(0.96);  
-                    cursor: pointer;              
+                    transform: scale(0.96);
+                    cursor: pointer;
                 }
                 &:active {
                     transform: scale(0.90);
                 }
-    
+
                 .auto-clicks-price {
                     position: relative;
                     top: 4px;
                     font-size: 17px;
-                    color: rgb(255, 255, 255); 
+                    color: rgb(255, 255, 255);
                 }
             }
-            
+
             .auto-clicks-second {
                 display: none;
             }
         }
-    
+
     }
     .pop-pap {
         position: fixed;
         height: 100vmax;
-        width: 100%; 
+        width: 100%;
         z-index: 1000;
         background: rgba(3, 3, 3, 0.5);
         display:flex;
@@ -259,13 +258,13 @@ body.crazy {
                 text-align: center;
                 border: 2px solid black;
                 outline: none;
-                
+
                 &::placeholder {
                     font-size: 17px;
                     font-family: 'Exo 2', sans-serif
                 }
             }
-            
+
             .nickname-button {
                 height: 50px;
                 width: 150px;
@@ -277,19 +276,19 @@ body.crazy {
                 border-radius: 10px;
                 border: 1px solid black;
                 box-shadow: black 0 0 3px;
-                cursor: pointer;    
+                cursor: pointer;
                 background: linear-gradient(to bottom right, #193868,#a8033f);
                 user-select: none;
                 transition: transform 0.3s ease;
                 outline: none;
-                
+
                 &:hover {
-                    transform: scale(0.96);                
+                    transform: scale(0.96);
                 }
             }
         }
     }
-    
+
     .score {
         display:flex;
         justify-content: center;
