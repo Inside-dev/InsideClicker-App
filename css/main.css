@@ -78,13 +78,10 @@ body.crazy {
       .main .wrapper .left-side .up {
         height: 70px;
         width: 190px;
-        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        top: 20px;
-        right: 2px;
         font-family: 'Exo 2', sans-serif;
         font-size: 21px;
         border-radius: 10px;
@@ -93,7 +90,9 @@ body.crazy {
         cursor: pointer;
         background: linear-gradient(to bottom right, #193868, #a8033f);
         user-select: none;
-        transition: transform 0.3s ease; }
+        transition: transform 0.3s ease;
+        opacity: 0.6;
+        pointer-Events: none; }
         .main .wrapper .left-side .up:hover {
           transform: scale(0.96);
           cursor: pointer; }
@@ -104,12 +103,6 @@ body.crazy {
           top: 4px;
           font-size: 17px;
           color: white; }
-      .main .wrapper .left-side .double-up {
-        display: flex;
-        opacity: 0.6;
-        pointer-Events: none; }
-      .main .wrapper .left-side .triple-up {
-        display: none; }
     .main .wrapper .middle-side {
       display: flex;
       justify-content: space-between;
@@ -135,18 +128,14 @@ body.crazy {
       width: 400px;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
-      flex-direction: row; }
+      align-items: center; }
       .main .wrapper .right-side .auto-clicks {
         height: 70px;
         width: 190px;
-        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        top: 20px;
-        right: 2px;
         font-family: 'Exo 2', sans-serif;
         font-size: 21px;
         text-align: center;
@@ -169,8 +158,6 @@ body.crazy {
           top: 4px;
           font-size: 17px;
           color: white; }
-      .main .wrapper .right-side .auto-clicks-second {
-        display: none; }
   .main .pop-pap {
     position: fixed;
     height: 100vmax;

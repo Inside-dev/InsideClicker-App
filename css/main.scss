@@ -97,13 +97,10 @@ body.crazy {
             .up {
                 height: 70px;
                 width: 190px;
-                position: relative;
                 display:flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                top: 20px;
-                right: 2px;
                 font-family: 'Exo 2', sans-serif;
                 font-size: 21px;
                 border-radius: 10px;
@@ -113,6 +110,8 @@ body.crazy {
                 background: linear-gradient(to bottom right, #193868,#a8033f);
                 user-select: none;
                 transition: transform 0.3s ease;
+                opacity: 0.6;
+                pointer-Events: none;
 
                 &:hover {
                     transform: scale(0.96);
@@ -129,16 +128,6 @@ body.crazy {
                     color: rgb(255, 255, 255);
                 }
             }
-
-            .double-up {
-                display: flex;
-                opacity: 0.6;
-                pointer-Events: none;
-            }
-            .triple-up {
-                display: none;
-            }
-
         }
 
         .middle-side {
@@ -178,13 +167,10 @@ body.crazy {
             .auto-clicks {
                 height: 70px;
                 width: 190px;
-                position: relative;
                 display:flex;
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                top: 20px;
-                right: 2px;
                 font-family: 'Exo 2', sans-serif;
                 font-size: 21px;
                 text-align: center;
@@ -212,10 +198,6 @@ body.crazy {
                     font-size: 17px;
                     color: rgb(255, 255, 255);
                 }
-            }
-
-            .auto-clicks-second {
-                display: none;
             }
         }
 
