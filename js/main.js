@@ -1,3 +1,8 @@
+ "use strict";
+
+import cpmCounter from './cpm.js';
+
+//DOM элементы
 let nicknameButton = document.querySelector(".nickname-button"),
     popPap = document.querySelector(".pop-pap"),
     nicknameValue = document.querySelector(".nickname-input"),
@@ -6,19 +11,7 @@ let nicknameButton = document.querySelector(".nickname-button"),
     clicker = document.querySelector(".clicker"),
     doubleUp = document.querySelector(".double-up"),
     tripleUp = document.querySelector(".triple-up"),
-    autoClicksBtn = document.querySelector(".auto-clicks"),
-    cpm = document.querySelector(".CPM");
-
-
-//Ник нейм:
-nicknameButton.addEventListener("click", function () {
-    yourName.textContent = nicknameValue.value;
-});
-
-nicknameButton.addEventListener("click", function () {
-    popPap.style.display = "none";
-});
-
+    autoClicksBtn = document.querySelector(".auto-clicks");
 //Очки и апгрейды:
 let num = 0,
     firstUpCheck = false,
@@ -26,17 +19,16 @@ let num = 0,
     firstAutoCheck = false,
     secondAutoCheck = false;
 
-//Переменные для "Кликов в минуту":
-export let clickCounter = 0;
-let totalCpm = 0,
-    lastCpm = 0,
-    lastClicked = (new Date()).getTime(),
-    cpmCounterCheck = false,
-    globalCounter = 0,
-    clickMinus = 0;
+//Ник нейм:
+nicknameButton.addEventListener("click", () => {
+    yourName.textContent = nicknameValue.value;
+});
+nicknameButton.addEventListener("click", () => {
+    popPap.style.display = "none";
+});
 
 //Клик по кнопке:
-clicker.addEventListener("click", function () {
+clicker.addEventListener("click", () => {
     //Подсчет и проверка умноженных кликов:
     if (firstUpCheck === false && secondUpCheck === false) {
         ++num;
@@ -89,7 +81,7 @@ clicker.addEventListener("click", function () {
 });
 
 //Умноженные клики:
-doubleUp.addEventListener("click", function () {
+doubleUp.addEventListener("click", () => {
     if (num > 50 || num === 50) {
         num = num - 50;
         firstUpCheck = true;
@@ -101,7 +93,7 @@ doubleUp.addEventListener("click", function () {
     }
 });
 
-tripleUp.addEventListener("click", function () {
+tripleUp.addEventListener("click", () => {
     if (num > 300 || num === 300) {
         num = num - 300;
         firstUpCheck = false;
@@ -112,7 +104,7 @@ tripleUp.addEventListener("click", function () {
 });
 
 //Авто клики:
-$(".auto-clicks-first").on("click", function () {
+$(".auto-clicks-first").on("click", () => {
     if (num > 200 || num === 200) {
         num = (num - 200);
         firstAutoCheck = true;
@@ -146,7 +138,7 @@ $(".auto-clicks-first").on("click", function () {
     }
 });
 
-$(".auto-clicks-second").on("click", function () {
+$(".auto-clicks-second").on("click", () => {
     if (num > 1000 || num === 1000) {
         num = (num - 1000);
         firstAutoCheck = false;
@@ -180,32 +172,3 @@ $(".auto-clicks-second").on("click", function () {
         }, 1000);
     }
 });
-
-//Функция обработки скорости кликов и вывод сообщений
-function cpmCounter() {
-    clickCounter++;
-
-    let timeNow = (new Date()).getTime();
-    let cpm = Math.round(60 /(timeNow - lastClicked) * 1000);
-
-    totalCpm += cpm;
-    lastClicked = timeNow;
-
-    if(difference(lastCpm, cpm) > 30) {
-        clickCounter = 1;
-        totalCpm = cpm;
-    }
-
-    lastCpm = cpm;
-    globalCounter = Math.round(totalCpm/clickCounter);
-    document.querySelector('.CPM').textContent = globalCounter;
-
-    if(globalCounter > 300) {
-            document.body.className = "crazy";
-
-    } else {
-            document.body.className = "";
-    }
-}
-
-function difference(a, b) { return Math.abs(a - b); }
