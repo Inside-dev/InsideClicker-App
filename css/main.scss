@@ -21,15 +21,13 @@
 
 
 body {
-    width: 100vw;
     height: 100vh;
+    width: 100vw;
     background: linear-gradient(to bottom right, #193868,#a8033f);
     background-size: 200%;
+    background-repeat: no-repeat;
     background-position: 100%;
     animation: background-animation infinite 5s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 body.crazy {
@@ -42,7 +40,7 @@ body.crazy {
     border-radius: 50%;
     border: 1px solid rgb(6, 175, 241);
     background: skyblue;
-    top: 50%;
+    top: 46%;
     left: 50%;
     transform: translate(-50%,-50%);
     display: flex;
@@ -54,6 +52,7 @@ body.crazy {
 }
 
 .main {
+    height: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -79,9 +78,8 @@ body.crazy {
     }
 
     .wrapper {
-        width: 1024px;
-        height: 400px;
-        margin: 0 auto;
+        width: 70%;
+        height: 40%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -135,9 +133,6 @@ body.crazy {
             justify-content: space-between;
             align-items: center;
             flex-direction: column;
-            margin-top: 55px;
-            margin-left: 10px;
-            margin-right: 10px;
 
             .clicker {
                 width: 200px;
@@ -276,7 +271,7 @@ body.crazy {
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-top: 50px;
+        margin-top: 40px;
         user-select: none;
 
         .CPM {
@@ -285,7 +280,7 @@ body.crazy {
             font-family: 'Exo 2', sans-serif;
             text-shadow: black 0 0 4px;
             position: relative;
-            bottom: 90px;
+            bottom: 70px;
         }
 
         .CPM-text {
@@ -293,10 +288,22 @@ body.crazy {
             font-size: 24px;
             font-family: 'Exo 2', sans-serif;
             position: relative;
-            bottom: 83px;
+            bottom: 62px;
+        }
+
+        .cpm-budge {
+            opacity: 0;
+            position: relative;
+            bottom: 15px;
+            font-size: 25px;
+            color: #fff;
+            font-weight: 500;
+            text-shadow: black 0 0 4px;
+            font-family: 'Baloo Chettan', cursive;
         }
 
         .yourname {
+            min-height: 18px;
             font-size: 38px;
             margin-top: 20px;
             font-family: 'Baloo Chettan', cursive;

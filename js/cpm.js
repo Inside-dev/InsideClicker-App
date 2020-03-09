@@ -3,9 +3,9 @@ let clickCounter = 0,
     totalCpm = 0,
     lastCpm = 0,
     lastClicked = (new Date()).getTime(),
-    cpmCounterCheck = false,
     globalCounter = 0,
-    clickMinus = 0;
+    cpmBudge = document.querySelector(".cpm-budge");
+
 
 //Функция обработки скорости кликов и вывод сообщений
 export default function cpmCounter() {
@@ -28,9 +28,10 @@ export default function cpmCounter() {
 
     if(globalCounter > 300) {
         document.body.className = "crazy";
-
+        cpmBudge.style.opacity = "1";
     } else {
         document.body.className = "";
+        cpmBudge.style.opacity = "0";
     }
 }
 

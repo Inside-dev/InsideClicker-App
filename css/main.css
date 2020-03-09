@@ -12,15 +12,13 @@
   100% {
     background-position: 0%; } }
 body {
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
   background: linear-gradient(to bottom right, #193868, #a8033f);
   background-size: 200%;
+  background-repeat: no-repeat;
   background-position: 100%;
-  animation: background-animation infinite 5s;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  animation: background-animation infinite 5s; }
 
 body.crazy {
   animation: background-animation infinite 1s; }
@@ -31,7 +29,7 @@ body.crazy {
   border-radius: 50%;
   border: 1px solid #06aff1;
   background: skyblue;
-  top: 50%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -42,6 +40,7 @@ body.crazy {
   z-index: -500; }
 
 .main {
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,9 +61,8 @@ body.crazy {
       right: 15px;
       user-select: none; }
   .main .wrapper {
-    width: 1024px;
-    height: 400px;
-    margin: 0 auto;
+    width: 70%;
+    height: 40%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,10 +105,7 @@ body.crazy {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-direction: column;
-      margin-top: 55px;
-      margin-left: 10px;
-      margin-right: 10px; }
+      flex-direction: column; }
       .main .wrapper .middle-side .clicker {
         width: 200px;
         height: 200px;
@@ -218,7 +213,7 @@ body.crazy {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 40px;
     user-select: none; }
     .main .score .CPM {
       color: #fff;
@@ -226,14 +221,24 @@ body.crazy {
       font-family: 'Exo 2', sans-serif;
       text-shadow: black 0 0 4px;
       position: relative;
-      bottom: 90px; }
+      bottom: 70px; }
     .main .score .CPM-text {
       color: black;
       font-size: 24px;
       font-family: 'Exo 2', sans-serif;
       position: relative;
-      bottom: 83px; }
+      bottom: 62px; }
+    .main .score .cpm-budge {
+      opacity: 0;
+      position: relative;
+      bottom: 15px;
+      font-size: 25px;
+      color: #fff;
+      font-weight: 500;
+      text-shadow: black 0 0 4px;
+      font-family: 'Baloo Chettan', cursive; }
     .main .score .yourname {
+      min-height: 18px;
       font-size: 38px;
       margin-top: 20px;
       font-family: 'Baloo Chettan', cursive; }
