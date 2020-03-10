@@ -18,7 +18,8 @@ body {
   background-size: 200%;
   background-repeat: no-repeat;
   background-position: 100%;
-  animation: background-animation infinite 5s; }
+  animation: background-animation infinite 5s;
+  cursor: url("img/cursor.png"), auto; }
 
 body.crazy {
   animation: background-animation infinite 1s; }
@@ -93,7 +94,7 @@ body.crazy {
         pointer-Events: none; }
         .main .wrapper .left-side .up:hover {
           transform: scale(0.96);
-          cursor: pointer; }
+          cursor: url("img/cursor-pointer.png"), auto; }
         .main .wrapper .left-side .up:active {
           transform: scale(0.9); }
         .main .wrapper .left-side .up .up-price {
@@ -116,7 +117,7 @@ body.crazy {
         position: relative;
         z-index: 200; }
         .main .wrapper .middle-side .clicker:hover {
-          cursor: pointer; }
+          cursor: url("img/cursor-pointer.png"), auto; }
         .main .wrapper .middle-side .clicker:active {
           transform: scale(0.95); }
     .main .wrapper .right-side {
@@ -137,7 +138,6 @@ body.crazy {
         border-radius: 10px;
         border: 1px solid black;
         box-shadow: black 0 0 3px;
-        cursor: pointer;
         background: linear-gradient(to bottom right, #193868, #a8033f);
         user-select: none;
         transition: transform 0.3s ease;
@@ -145,7 +145,7 @@ body.crazy {
         pointer-events: none; }
         .main .wrapper .right-side .auto-clicks:hover {
           transform: scale(0.96);
-          cursor: pointer; }
+          cursor: url("img/cursor-pointer.png"), auto; }
         .main .wrapper .right-side .auto-clicks:active {
           transform: scale(0.9); }
         .main .wrapper .right-side .auto-clicks .auto-clicks-price {
@@ -201,7 +201,7 @@ body.crazy {
         border-radius: 10px;
         border: 1px solid black;
         box-shadow: black 0 0 3px;
-        cursor: pointer;
+        cursor: url("img/cursor-pointer.png"), auto;
         background: linear-gradient(to bottom right, #193868, #a8033f);
         user-select: none;
         transition: transform 0.3s ease;

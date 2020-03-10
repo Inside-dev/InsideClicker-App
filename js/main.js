@@ -1,6 +1,8 @@
  "use strict";
 
 import cpmCounter from './cpm.js';
+import windowResizeCheck from './windowSizeCheck.js';
+import windowLoadCheck from "./windowSizeCheck.js";
 
 //DOM элементы
 let nicknameButton = document.querySelector(".nickname-button"),
@@ -98,3 +100,8 @@ function globalCheck() {
 }
 //Запуск проверки
 setInterval(globalCheck, 300);
+
+//Check window size
+ window.onresize(windowResizeCheck);
+ windowLoadCheck();
+

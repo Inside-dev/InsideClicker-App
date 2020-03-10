@@ -28,6 +28,7 @@ body {
     background-repeat: no-repeat;
     background-position: 100%;
     animation: background-animation infinite 5s;
+    cursor: url("img/cursor.png"), auto;
 }
 
 body.crazy {
@@ -113,7 +114,7 @@ body.crazy {
 
                 &:hover {
                     transform: scale(0.96);
-                    cursor: pointer;
+                    cursor: url("img/cursor-pointer.png"), auto;
                 }
                 &:active {
                     transform: scale(0.90);
@@ -145,7 +146,7 @@ body.crazy {
                 z-index: 200;
 
                 &:hover {
-                    cursor: pointer;
+                    cursor: url("img/cursor-pointer.png"), auto;
                 }
                 &:active {
                     transform: scale(0.95);
@@ -172,7 +173,6 @@ body.crazy {
                 border-radius: 10px;
                 border: 1px solid black;
                 box-shadow: black 0 0 3px;
-                cursor: pointer;
                 background: linear-gradient(to bottom right, #193868,#a8033f);
                 user-select: none;
                 transition: transform 0.3s ease;
@@ -181,7 +181,7 @@ body.crazy {
 
                 &:hover {
                     transform: scale(0.96);
-                    cursor: pointer;
+                    cursor: url("img/cursor-pointer.png"), auto;
                 }
                 &:active {
                     transform: scale(0.90);
@@ -253,7 +253,7 @@ body.crazy {
                 border-radius: 10px;
                 border: 1px solid black;
                 box-shadow: black 0 0 3px;
-                cursor: pointer;
+                cursor: url("img/cursor-pointer.png"), auto;
                 background: linear-gradient(to bottom right, #193868,#a8033f);
                 user-select: none;
                 transition: transform 0.3s ease;
