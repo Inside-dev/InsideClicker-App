@@ -1,8 +1,6 @@
  "use strict";
 
 import cpmCounter from './cpm.js';
-import windowResizeCheck from './windowSizeCheck.js';
-import windowLoadCheck from "./windowSizeCheck.js";
 
 //DOM элементы
 let nicknameButton = document.querySelector(".nickname-button"),
@@ -12,7 +10,8 @@ let nicknameButton = document.querySelector(".nickname-button"),
     scoreNumber = document.querySelector(".score-number"),
     clicker = document.querySelector(".clicker"),
     upClicksBtn = document.querySelector(".up"),
-    autoClicksBtn = document.querySelector(".auto-clicks");
+    autoClicksBtn = document.querySelector(".auto-clicks"),
+    screenSizePopUp = document.querySelector(".size-alert");
 //Очки и апгрейды:
 let num = 0,
     extraClickScore = 1,
@@ -79,7 +78,7 @@ clicker.addEventListener("click", () => {
         }
         setInterval(function AutoClick() {
             num = num + 1;
-            scoreNumber[0].textContent = num;
+            scoreNumber.textContent = num;
         }, 1000);
     }
 });
@@ -101,7 +100,21 @@ function globalCheck() {
 //Запуск проверки
 setInterval(globalCheck, 300);
 
-//Check window size
- window.onresize(windowResizeCheck);
- windowLoadCheck();
+//Check window size and if it lower when need, show alert pop-up.
+window.onresize = () => {
+    if(window.innerWidth < 900 || window.innerHeight < 700) {
+        screenSizePopUp.style.display = "flex";
+    } else {
+        screenSizePopUp.style.display = "none";
+    }
+};
+
+(function windowLoadCheck() {
+    if(window.innerWidth < 900 || window.innerHeight < 700) {
+        screenSizePopUp.style.display = "flex";
+    } else {
+        screenSizePopUp.style.display = "none";
+    }
+})();
+
 
