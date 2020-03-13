@@ -1,4 +1,4 @@
-//Переменные для "Кликов в минуту":
+//Data for cpm:
 let clickCounter = 0,
     totalCpm = 0,
     lastCpm = 0,
@@ -7,7 +7,7 @@ let clickCounter = 0,
     cpmBudge = document.querySelector(".cpm-budge");
 
 
-//Функция обработки скорости кликов и вывод сообщений
+//Main cpm function with all calc
 export default function cpmCounter() {
     clickCounter++;
 

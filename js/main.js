@@ -1,35 +1,47 @@
  "use strict";
 
 import cpmCounter from './cpm.js';
+import {extraClickActionLogic} from './buttons.js';
+import {extraAutoClickActionLogic} from './buttons.js';
+import {extraClickCheckLogic} from './buttons.js';
+import {extraAutoClickCheckLogic} from './buttons.js';
 
-//DOM элементы
-let nicknameButton = document.querySelector(".nickname-button"),
-    popPap = document.querySelector(".pop-pap"),
-    nicknameValue = document.querySelector(".nickname-input"),
-    yourName = document.querySelector(".yourname"),
-    scoreNumber = document.querySelector(".score-number"),
-    clicker = document.querySelector(".clicker"),
-    upClicksBtn = document.querySelector(".up"),
-    autoClicksBtn = document.querySelector(".auto-clicks"),
-    screenSizePopUp = document.querySelector(".size-alert");
-//Очки и апгрейды:
-let num = 0,
-    extraClickScore = 1,
-    extraAutoClickScore = 1,
-    firstUpCheck = false,
-    firstAutoCheck = false;
+const data  = {
+    //DOM elements
+    nicknameButton: document.querySelector(".nickname-button"),
+    popPap: document.querySelector(".pop-pap"),
+    nicknameValue: document.querySelector(".nickname-input"),
+    yourName: document.querySelector(".yourname"),
+    clicker: document.querySelector(".clicker"),
+    scoreNumber: document.querySelector(".score-number"),
+    screenSizePopUp: document.querySelector(".size-alert"),
+    upClickBtn: document.querySelector(".up"),
+    upClickInfo: document.querySelector(".up-info"),
+    upClickPrice: document.querySelector(".up-price"),
+    autoClickBtn: document.querySelector(".auto-clicks"),
+    autoClickInfo: document.querySelector(".auto-clicks-info"),
+    autoClickPrice: document.querySelector(".auto-clicks-price"),
+    //Score and upgrades
+    num: 0,
+    extraClickScore: 1,
+    extraAutoClickScore: 1,
+    extraClickRequire: 30,
+    extraAutoClickRequire: 50,
+    autoClicks: null,
+};
+export default data;
 
-//Ник нейм:
-nicknameButton.addEventListener("click", () => {
-    yourName.textContent = nicknameValue.value;
-    popPap.style.display = "none";
+//Nickname:
+data.nicknameButton.addEventListener("click", () => {
+    data.yourName.textContent = data.nicknameValue.value;
+    data.popPap.style.display = "none";
 });
 
-//Клик по кнопке:
-clicker.addEventListener("click", () => {
-    num = num + extraClickScore;
-    scoreNumber.textContent = num;
-    //Анимация клика
+//Main click button:
+data.clicker.addEventListener("click", () => {
+    data.num += data.extraClickScore;
+    data.scoreNumber.textContent = data.num;
+    //Click animate
     ($('<div>', {
         class: "click-wave",
     }).appendTo(".middle-side")).animate({
@@ -42,78 +54,41 @@ clicker.addEventListener("click", () => {
             $(".click-wave:eq(0)").remove();
         })
     });
-    //Обработка скорости кликов и вывод сообщений
+    //Clicks per minute module
     cpmCounter();
 });
-
-//Умноженные клики:
- upClicksBtn.addEventListener("click", () => {
-    if (num > 50 || num === 50) {
-        num = num - 50;
-        firstUpCheck = true;
-        scoreNumber.textContent = num;
-        upClicksBtn.style.display = "none";
-        // tripleUp.style.display = "flex";
-        // tripleUp.style.pointerEvents = "none";
-        // tripleUp.style.opacity = "0.6";
-    }
+data.upClickBtn.addEventListener('click', () => {
+    extraClickActionLogic();
+    extraClickCheckLogic();
 });
 
-//Авто клики:
- autoClicksBtn.addEventListener("click", () => {
-    if (num > 200 || num === 200) {
-        num = (num - 200);
-        firstAutoCheck = true;
-        scoreNumber.textContent = num;
-        $(".auto-clicks-second").css({
-            "display": "flex",
-            "pointer-events": "none",
-            "opacity": "0.6"
-        });
-        if (num > 1000 || num === 1000) {
-            $(".auto-clicks-second").css({
-                "pointer-events": "auto",
-                "opacity": "1"
-            });
-        }
-        setInterval(function AutoClick() {
-            num = num + 1;
-            scoreNumber.textContent = num;
-        }, 1000);
-    }
+data.autoClickBtn.addEventListener('click', () => {
+    extraAutoClickActionLogic();
+    extraAutoClickCheckLogic();
 });
 
-//Функция глобальной проверки
+//Function of global check
 function globalCheck() {
-    //Подсчет и проверка умноженных кликов:
-    if (num > 50 || num === 50) {
-        upClicksBtn.style.pointerEvents = "auto";
-        upClicksBtn.style.opacity = "1";
-    }
-
-    //Подсчет и проверка авто кликов:
-    if (num > 10 || num === 10) {
-        autoClicksBtn.style.pointerEvents = "auto";
-        autoClicksBtn.style.opacity = "1";
-    }
+    extraClickCheckLogic();
+    extraAutoClickCheckLogic();
 }
-//Запуск проверки
+//Start checking
 setInterval(globalCheck, 300);
 
 //Check window size and if it lower when need, show alert pop-up.
 window.onresize = () => {
     if(window.innerWidth < 900 || window.innerHeight < 700) {
-        screenSizePopUp.style.display = "flex";
+        data.screenSizePopUp.style.display = "flex";
     } else {
-        screenSizePopUp.style.display = "none";
+        data.screenSizePopUp.style.display = "none";
     }
 };
 
 (function windowLoadCheck() {
     if(window.innerWidth < 900 || window.innerHeight < 700) {
-        screenSizePopUp.style.display = "flex";
+        data.screenSizePopUp.style.display = "flex";
     } else {
-        screenSizePopUp.style.display = "none";
+        data.screenSizePopUp.style.display = "none";
     }
 })();
 
