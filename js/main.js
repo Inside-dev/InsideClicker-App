@@ -1,20 +1,24 @@
- "use strict";
+"use strict";
 
 import cpmCounter from './cpm.js';
 import {extraClickActionLogic} from './buttons.js';
 import {extraAutoClickActionLogic} from './buttons.js';
 import {extraClickCheckLogic} from './buttons.js';
 import {extraAutoClickCheckLogic} from './buttons.js';
+import {upgrade} from './sounds.js';
+import {background} from './sounds.js';
 
 const data  = {
     //DOM elements
     nicknameButton: document.querySelector(".nickname-button"),
     popPap: document.querySelector(".pop-pap"),
+    main: document.querySelector(".main"),
     nicknameValue: document.querySelector(".nickname-input"),
     yourName: document.querySelector(".yourname"),
     clicker: document.querySelector(".clicker"),
     scoreNumber: document.querySelector(".score-number"),
     screenSizePopUp: document.querySelector(".size-alert"),
+    screenSizePopUpText: document.querySelector(".size-alert-text"),
     upClickBtn: document.querySelector(".up"),
     upClickInfo: document.querySelector(".up-info"),
     upClickPrice: document.querySelector(".up-price"),
@@ -26,13 +30,17 @@ const data  = {
     extraClickScore: 1,
     extraAutoClickScore: 1,
     extraClickRequire: 30,
-    extraAutoClickRequire: 50,
+    extraAutoClickRequire: 40,
     autoClicks: null,
 };
 export default data;
 
+data.screenSizePopUpText.innerHTML = 'Sorry, but this application does not support this screen size.<br>But you can look at this amazing chicken';
+data.main.style.display = "flex";
+
 //Nickname:
 data.nicknameButton.addEventListener("click", () => {
+    background.stop();
     data.yourName.textContent = data.nicknameValue.value;
     data.popPap.style.display = "none";
 });
@@ -58,11 +66,13 @@ data.clicker.addEventListener("click", () => {
     cpmCounter();
 });
 data.upClickBtn.addEventListener('click', () => {
+    upgrade.play();
     extraClickActionLogic();
     extraClickCheckLogic();
 });
 
 data.autoClickBtn.addEventListener('click', () => {
+    upgrade.play();
     extraAutoClickActionLogic();
     extraAutoClickCheckLogic();
 });
@@ -79,17 +89,24 @@ setInterval(globalCheck, 300);
 window.onresize = () => {
     if(window.innerWidth < 900 || window.innerHeight < 700) {
         data.screenSizePopUp.style.display = "flex";
+        data.main.style.display = "none";
     } else {
         data.screenSizePopUp.style.display = "none";
+        data.main.style.display = "flex";
     }
 };
 
 (function windowLoadCheck() {
     if(window.innerWidth < 900 || window.innerHeight < 700) {
         data.screenSizePopUp.style.display = "flex";
+        data.main.style.display = "none";
     } else {
         data.screenSizePopUp.style.display = "none";
+        data.main.style.display = "flex";
     }
 })();
+
+//Start background music
+background.play();
 
 

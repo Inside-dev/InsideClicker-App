@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-<!-- Created by Inside -->
+<!-- Created by Nobody -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Inside Clicker</title>
+    <title>Nobody Clicker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="css/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
@@ -16,7 +17,7 @@
     <div class="main">
         <div class="logo">
             <img src="css/img/logo.png" alt="Inside Clicker">
-            <p class="text-logo">Inside<br>Clicker</p>
+            <p class="text-logo">Nobody<br>Clicker</p>
         </div>
         <div class="wrapper">
             <div class="left-side">
@@ -32,13 +33,13 @@
             <div class="right-side">
                 <div class="auto-clicks">
                     <span class="auto-clicks-info">Auto clicks<br>1/sec</span>
-                    <span class="auto-clicks-price">50 clicks</span>
+                    <span class="auto-clicks-price">40 clicks</span>
                 </div>
             </div>
         </div>
         <div class="pop-pap">
             <div class="nickname">
-                <p class="nickname-ask">What's your name?</p>
+                <p class="nickname-ask">What's you name?</p>
                 <input class="nickname-input" type="text" placeholder="Введите ваше имя">
                 <button class="nickname-button">Confirm</button>
             </div>
@@ -51,11 +52,19 @@
             <p class="score-information">Your clicks:</p>
             <span class="score-number">0</span>
         </div>
-        <div class="size-alert">
-            <span class="size-alert-text">Sorry, but this application does not support this screen size.<br>But you can look at this amazing chicken</span>
-            <img src="css/img/size-alert.gif" class="size-alert-img" alt="Chiken alert">
-        </div>
+    </div>
+    <div class="size-alert">
+        <span class="size-alert-text">Sorry, but this application does not support this screen size.<br>But you can look at this amazing chicken</span>
+        <img src="css/img/size-alert.gif" class="size-alert-img" alt="Chiken alert">
     </div>
     <script type="module" src="js/main.js"></script>
+    <script>
+        function corsCheck() {
+            document.querySelector(".size-alert").style.display = "flex";
+            document.querySelector(".main").style.display = "none";
+            document.querySelector(".size-alert-text").textContent = "You has been blocked by CORS. Your need start this app with localhost."
+        }
+        corsCheck();
+    </script>
 </body>
 </html>

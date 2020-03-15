@@ -158,7 +158,10 @@ body.crazy {
     height: 100vmax;
     width: 100%;
     z-index: 1000;
-    background: rgba(3, 3, 3, 0.5);
+    background-image: url("img/background.gif");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center; }
@@ -253,24 +256,26 @@ body.crazy {
       font-family: 'Exo 2', sans-serif;
       color: #fff;
       text-shadow: black 0 0 4px; }
-  .main .size-alert {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 100000;
-    background: #69CEEC; }
-    .main .size-alert .size-alert-text {
-      color: #fff;
-      font-size: 24px;
-      font-family: 'Exo 2', sans-serif;
-      text-align: center;
-      line-height: 35px; }
-    .main .size-alert .size-alert-img {
-      width: 200px;
-      height: 200px; }
+
+.size-alert {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 100000;
+  background: #69CEEC; }
+  .size-alert .size-alert-text {
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    line-height: 35px; }
+  .size-alert .size-alert-img {
+    width: 200px;
+    height: 200px; }
 
 /*# sourceMappingURL=main.css.map */

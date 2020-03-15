@@ -13,7 +13,7 @@ export function extraClickActionLogic() {
 export function extraAutoClickActionLogic() {
     data.num -= data.extraAutoClickRequire;
     data.scoreNumber.textContent = data.num;
-    data.extraAutoClickRequire = data.extraAutoClickRequire * 5;
+    data.extraAutoClickRequire = data.extraAutoClickRequire * 3;
     data.extraAutoClickScore = data.extraAutoClickScore * 2;
     data.autoClickInfo.textContent = `Auto clicks ${data.extraAutoClickScore * 2}/sec`;
     data.autoClickPrice.textContent = `${data.extraAutoClickRequire} Clicks`;
