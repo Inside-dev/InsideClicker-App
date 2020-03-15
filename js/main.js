@@ -1,53 +1,36 @@
 "use strict";
 
 import cpmCounter from './cpm.js';
-import {extraClickActionLogic} from './buttons.js';
-import {extraAutoClickActionLogic} from './buttons.js';
-import {extraClickCheckLogic} from './buttons.js';
-import {extraAutoClickCheckLogic} from './buttons.js';
-import {upgrade} from './sounds.js';
-import {background} from './sounds.js';
+import {
+    extraAutoClickActionLogic,
+    extraAutoClickCheckLogic,
+    extraClickActionLogic,
+    extraClickCheckLogic
+} from './buttons.js';
+import {background, upgrade} from './sounds.js';
+import startLoad from "./load.js";
+import data from './data.js';
 
-const data  = {
-    //DOM elements
-    nicknameButton: document.querySelector(".nickname-button"),
-    popPap: document.querySelector(".pop-pap"),
-    main: document.querySelector(".main"),
-    nicknameValue: document.querySelector(".nickname-input"),
-    yourName: document.querySelector(".yourname"),
-    clicker: document.querySelector(".clicker"),
-    scoreNumber: document.querySelector(".score-number"),
-    screenSizePopUp: document.querySelector(".size-alert"),
-    screenSizePopUpText: document.querySelector(".size-alert-text"),
-    upClickBtn: document.querySelector(".up"),
-    upClickInfo: document.querySelector(".up-info"),
-    upClickPrice: document.querySelector(".up-price"),
-    autoClickBtn: document.querySelector(".auto-clicks"),
-    autoClickInfo: document.querySelector(".auto-clicks-info"),
-    autoClickPrice: document.querySelector(".auto-clicks-price"),
-    //Score and upgrades
-    num: 0,
-    extraClickScore: 1,
-    extraAutoClickScore: 1,
-    extraClickRequire: 30,
-    extraAutoClickRequire: 40,
-    autoClicks: null,
-};
-export default data;
-
-data.screenSizePopUpText.innerHTML = 'Sorry, but this application does not support this screen size.<br>But you can look at this amazing chicken';
-data.main.style.display = "flex";
+//Load data from localStorage if it has, and check problem with CORS
+startLoad();
 
 //Nickname:
 data.nicknameButton.addEventListener("click", () => {
     background.stop();
-    data.yourName.textContent = data.nicknameValue.value;
+    if(data.nicknameValue.value.length === 0) {
+        localStorage.setItem('nickname', 'Noname');
+        data.yourName.textContent = 'Noname';
+    } else {
+        localStorage.setItem('nickname', data.nicknameValue.value);
+        data.yourName.textContent = data.nicknameValue.value;
+    }
     data.popPap.style.display = "none";
 });
 
 //Main click button:
 data.clicker.addEventListener("click", () => {
     data.num += data.extraClickScore;
+    localStorage.setItem('num', data.num);
     data.scoreNumber.textContent = data.num;
     //Click animate
     ($('<div>', {
@@ -77,13 +60,11 @@ data.autoClickBtn.addEventListener('click', () => {
     extraAutoClickCheckLogic();
 });
 
-//Function of global check
-function globalCheck() {
+//Buttons check
+setInterval(() => {
     extraClickCheckLogic();
     extraAutoClickCheckLogic();
-}
-//Start checking
-setInterval(globalCheck, 300);
+}, 300);
 
 //Check window size and if it lower when need, show alert pop-up.
 window.onresize = () => {
@@ -106,7 +87,5 @@ window.onresize = () => {
     }
 })();
 
-//Start background music
-background.play();
 
 
