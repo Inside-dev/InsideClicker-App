@@ -1,30 +1,23 @@
 import data from "./data.js";
 import {background} from "./sounds.js";
+const dataToSave = ['num', 'extraClickScore', 'extraAutoClickScore', 'extraClickRequire', 'extraAutoClickRequire'];
+const elemToSave = [data.scoreNumber, data.upClickInfo, data.autoClickInfo, data.upClickPrice, data.autoClickPrice];
 
-let startLoad = function() {
+const startLoad = function() {
     //Change text of the screenPopUp if CORS is ok
     data.screenSizePopUpText.innerHTML = 'Sorry, but this application does not support this screen size.<br>But you can look at this amazing chicken';
     data.main.style.display = "flex";
     //Action with localStorage
-    if(localStorage.getItem('num')) {
-        data.num = +localStorage.getItem('num');
-        data.scoreNumber.textContent = data.num;
-    }
-    if(localStorage.getItem('extraClickScore')) {
-        data.extraClickScore = +localStorage.getItem('extraClickScore');
-        data.upClickInfo.textContent = `x${data.extraClickScore * 2} Clicks`;
-    }
-    if(localStorage.getItem('extraAutoClickScore')) {
-        data.extraAutoClickScore = +localStorage.getItem('extraAutoClickScore');
-        data.autoClickInfo.textContent = `Auto clicks ${data.extraAutoClickScore * 2}/sec`
-    }
-    if(localStorage.getItem('extraClickRequire')) {
-        data.extraClickRequire = +localStorage.getItem('extraClickRequire');
-        data.upClickPrice.textContent = `${data.extraClickRequire} Clicks`;
-    }
-    if(localStorage.getItem('extraAutoClickRequire')) {
-        data.extraAutoClickRequire = +localStorage.getItem('extraAutoClickRequire');
-        data.autoClickPrice.textContent = `${data.extraAutoClickRequire} Clicks`;
+    for(let i = 0; i < dataToSave.length; i++) {
+        if(localStorage.getItem(dataToSave[i])) {
+            data[dataToSave[i]] = +localStorage.getItem(dataToSave[i]);
+            elemToSave[i].textContent = `${data[dataToSave[i]]} Clicks`;
+            elemToSave[i] === data.scoreNumber ? elemToSave[i].textContent = `${data[dataToSave[i]]}` : false;
+            elemToSave[i] === data.upClickInfo ? elemToSave[i].textContent = `x${data[dataToSave[i]]} Clicks`: false;
+            if(elemToSave[i] === data.autoClickInfo) {
+                elemToSave[i].textContent = `Auto clicks ${data[dataToSave[i]] * 2}/sec`;
+            }
+        }
     }
     if(localStorage.getItem('nickname')) {
         data.yourName.textContent = localStorage.getItem('nickname');
