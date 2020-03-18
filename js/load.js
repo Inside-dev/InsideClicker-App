@@ -14,9 +14,7 @@ const startLoad = function() {
             elemToSave[i].textContent = `${data[dataToSave[i]]} Clicks`;
             elemToSave[i] === data.scoreNumber ? elemToSave[i].textContent = `${data[dataToSave[i]]}` : false;
             elemToSave[i] === data.upClickInfo ? elemToSave[i].textContent = `x${data[dataToSave[i]]} Clicks`: false;
-            if(elemToSave[i] === data.autoClickInfo) {
-                elemToSave[i].textContent = `Auto clicks ${data[dataToSave[i]] * 2}/sec`;
-            }
+            elemToSave[i] === data.autoClickInfo ? elemToSave[i].textContent = `Auto clicks ${data[dataToSave[i]] * 2}/sec`: false;
         }
     }
     if(localStorage.getItem('nickname')) {
