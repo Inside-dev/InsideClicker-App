@@ -1,3 +1,20 @@
-<h2><strong>Clicker game on native Javascript(ES6) + SCSS/Buzz lib/localStorage</strong></h2>
+# Clicker - JavaScript game
 
-<p><strong>To start the project you need open it in code redactor with localhost.<br><strong/></p>
+## Project setup
+```
+npm install
+```
+
+### Compiles/ hot-reloads for development and start project
+```
+npm run serve
+```
+
+### Technology stack:
+```
+- Javascript
+- SCSS
+- Sounds, Sound lib 'Buzz.js'
+- JavaScript animation
+- localStorage
+```
